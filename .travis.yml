@@ -1,0 +1,20 @@
+sudo:
+  false
+
+language:
+  python
+
+python:
+  - 3.5
+
+env:
+  global:
+    - AWS_ACCESS_KEY_ID=""
+    - AWS_SECRET_ACCESS_KEY=""
+
+install:
+  - pip install awscli
+
+script:
+  - echo 'test'
+  # - aws s3 sync assets s3://a.okfn.org
