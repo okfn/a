@@ -1,9 +1,11 @@
+$okf-primary: #69b93b;
+
 //Ribbon
 
 .ok-ribbon {
   height:60px;
   overflow:hidden;
-  background-color:#7ab800;
+  background-color:$okf-primary;
   padding-left:10px;
   display:block;
   cursor:pointer;
@@ -33,7 +35,7 @@
       left:10px;
       top:0;
       width:141px;
-      background-color:#7ab800;
+      background-color:$okf-primary;
       height:67px;
       border-radius: 0 0 11px 11px;
       -webkit-transform:  translateZ(-1000px) perspective(100px) rotateX(-18deg); //translateZ fixes Safari bug
@@ -138,7 +140,7 @@
   -ms-transition: max-height .35s ease;
   -o-transition: max-height .35s ease;
   transition: max-height .35s ease;
-  border-bottom: solid 4px #7ab800;
+  border-bottom: solid 4px $okf-primary;
   margin-top: -4px;
   background-color: #FFF;
 
