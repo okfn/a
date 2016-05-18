@@ -6,5 +6,7 @@ jQuery( document ).ready( function ( e ) {
         $(this).toggleClass("closed open");
         $('#ok-panel').toggleClass("closed open");
     });
+
+    $( "body" ).addClass( "has-ok-panel" );
   }
 });
