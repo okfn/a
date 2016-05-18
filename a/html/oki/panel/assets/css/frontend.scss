@@ -16,9 +16,10 @@ $okf-primary: #69b93b;
   }
 }
 
-@media only screen and (min-width : 576px) {
 
-  .ok-ribbon {
+.ok-ribbon {
+
+  @mixin ribbon {
     position:relative;
     top:-6px;
     right:10px;
@@ -104,8 +105,41 @@ $okf-primary: #69b93b;
     }
   }
 
-  .fixed-ok-panel,
-  .absolute-ok-panel {
+  &[data-breakpoint='448px'] {
+    @media only screen and (min-width : 448px) {
+      @include ribbon;
+    }
+  }
+
+  &[data-breakpoint='640px'] {
+    @media only screen and (min-width : 640px) {
+      @include ribbon;
+    }
+  }
+
+  &[data-breakpoint='768px'] {
+    @media only screen and (min-width : 768px) {
+      @include ribbon;
+    }
+  }
+
+  &[data-breakpoint='896px'] {
+    @media only screen and (min-width : 896px) {
+      @include ribbon;
+    }
+  }
+
+  &:not([data-breakpoint*='px']) {
+    @media only screen and (min-width : 576px) {
+      @include ribbon;
+    }
+  }
+}
+
+.fixed-ok-panel,
+.absolute-ok-panel {
+
+  @mixin positioned-ribbon {
     position: fixed;
     width: 100%;
     top: 0;
@@ -124,8 +158,67 @@ $okf-primary: #69b93b;
       }
     }
   }
-  .absolute-ok-panel {
-    position: absolute;
+
+  &[data-breakpoint='448px'] {
+    @media only screen and (min-width : 448px) {
+      @include positioned-ribbon;
+    }
+  }
+
+  &[data-breakpoint='640px'] {
+    @media only screen and (min-width : 640px) {
+      @include positioned-ribbon;
+    }
+  }
+
+  &[data-breakpoint='768px'] {
+    @media only screen and (min-width : 768px) {
+      @include positioned-ribbon;
+    }
+  }
+
+  &[data-breakpoint='896px'] {
+    @media only screen and (min-width : 896px) {
+      @include positioned-ribbon;
+    }
+  }
+
+  &:not([data-breakpoint*='px']) {
+    @media only screen and (min-width : 576px) {
+      @include positioned-ribbon;
+    }
+  }
+
+}
+.absolute-ok-panel {
+  &[data-breakpoint='448px'] {
+    @media only screen and (min-width : 448px) {
+      position: absolute;
+    }
+  }
+
+  &[data-breakpoint='640px'] {
+    @media only screen and (min-width : 640px) {
+      position: absolute;
+    }
+  }
+
+  &[data-breakpoint='768px'] {
+    @media only screen and (min-width : 768px) {
+      position: absolute;
+    }
+  }
+
+  &[data-breakpoint='896px'] {
+    @media only screen and (min-width : 896px) {
+      position: absolute;
+    }
+  }
+
+  &:not([data-breakpoint*='px']) {
+    @media only screen and (min-width : 576px) {
+      position: absolute;
+    }
   }
 }
 
