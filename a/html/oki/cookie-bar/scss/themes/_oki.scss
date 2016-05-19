@@ -1,0 +1,55 @@
+@import '../_variables';
+
+.cc_container {
+
+    background: $oki-cookie-bar-bg-colour;
+    color: rgba($oki-cookie-bar-text-colour,0.7);
+    font-size:$oki-cookie-bar-font-size;
+    box-sizing:border-box;
+
+    ::-moz-selection {
+        background: $oki-primary;
+        color: #fff;
+        text-shadow: none;
+    }
+
+
+    .cc_btn,
+    .cc_btn:visited {
+        color: $oki-cookie-bar-button-text-colour;
+        background-color: $oki-cookie-bar-button-bg-colour;
+        transition: background 200ms ease-in-out, color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+        -webkit-transition: background 200ms ease-in-out, color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+
+    .cc_btn:hover,
+    .cc_btn:active {
+        background-color: $oki-cookie-bar-button-text-colour;
+        color:$oki-cookie-bar-bg-colour;
+    }
+
+
+    .cc_more_info {
+
+    }
+
+    a,
+    a:visited {
+        text-decoration: none;
+        color: rgba($oki-cookie-bar-text-colour,0.9);
+        transition: 200ms color;
+    }
+
+    a:hover,
+    a:active {
+        color: $oki-cookie-bar-text-colour;
+    }
+}
+
+@media screen and (min-width: $screen-md-min) {
+    .cc_container {
+
+    }
+}

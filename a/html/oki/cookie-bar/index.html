@@ -8,20 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 
-        <!-- OKI Cookie Bar CSS -->
-        <link rel="stylesheet" href="css/cookie-bar.css">
-
     </head>
     <body>
 
-        <!-- OKI Cookie Bar HTML -->
-        <div class="oki-cookie-bar">
-          <input id="oki-cookie-got-it" type="checkbox" />
-          <div>
-            This site uses cookies. For more information, see our <a href="https://okfn.org/cookie-policy/" rel="external">Cookie policy</a>.
-            <label for="oki-cookie-got-it">OK, got it.</label>
-          </div>
-        </div>
+      <!-- Begin OKI Cookie Bar -->
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"This site uses cookies. For more information, see our ","dismiss":"OK, Got it","learnMore":"Cookie policy.","link":"https://okfn.org/cookie-policy/"};
+      </script>
+      <script type="text/javascript" src="//a.okfn.org/html/oki/cookie-bar/js/cookie-bar.js"></script>
+      <!-- End OKI Cookie Bar -->
 
     </body>
 </html>

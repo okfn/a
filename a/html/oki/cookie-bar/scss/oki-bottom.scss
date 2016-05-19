@@ -1,0 +1,13 @@
+$oki-primary: #69b93b;
+$oki-darkgrey: rgb(45, 45, 45);
+
+$oki-cookie-bar-bg-colour: $oki-darkgrey !default;
+$oki-cookie-bar-text-colour: #fff !default;
+$oki-cookie-bar-button-bg-colour: $oki-primary !default;
+$oki-cookie-bar-button-text-colour: #fff !default;
+$oki-cookie-bar-button-border-radius: 1px !default;
+$oki-cookie-bar-font-size: 14px !default;
+
+@import 'basic-layouts/bottom';
+@import 'themes/oki';
+@import 'animations/slideup';
