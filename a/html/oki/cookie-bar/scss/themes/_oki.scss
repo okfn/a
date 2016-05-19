@@ -20,8 +20,8 @@
         background-color: $oki-cookie-bar-button-bg-colour;
         transition: background 200ms ease-in-out, color 200ms ease-in-out, box-shadow 200ms ease-in-out;
         -webkit-transition: background 200ms ease-in-out, color 200ms ease-in-out, box-shadow 200ms ease-in-out;
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
+        border-radius: $oki-cookie-bar-button-border-radius;
+        -webkit-border-radius: $oki-cookie-bar-button-border-radius;
     }
 
     .cc_btn:hover,
