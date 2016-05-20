@@ -16,125 +16,124 @@ $okf-primary: #69b93b;
   }
 }
 
+@mixin ribbon {
+  position:relative;
+  top:-6px;
+  right:10px;
+  width:161px;
+  height:64px;
+  text-align:center;
+  z-index:99;
+  padding: 4px 0 0 0;
+  background-color:transparent;
 
-.ok-ribbon {
+  &:before {
+    content:'';
+    position:absolute;
+    left:10px;
+    top:0;
+    width:141px;
+    background-color:$okf-primary;
+    height:67px;
+    border-radius: 0 0 11px 11px;
+    -webkit-transform:  translateZ(-1000px) perspective(100px) rotateX(-18deg); //translateZ fixes Safari bug
+    -moz-transform: perspective(100px) rotateX(-18deg);
+    transform: translateZ(-1000px) perspective(100px) rotateX(-18deg); //translateZ fixes Safari bug
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
+    z-index:-1;
+  }
 
-  @mixin ribbon {
-    position:relative;
-    top:-6px;
-    right:10px;
-    width:161px;
-    height:64px;
-    text-align:center;
-    z-index:99;
-    padding: 4px 0 0 0;
-    background-color:transparent;
+  &:after {
+    content: "";
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    bottom: 9px;
+    height: 6px;
+    left: 50%;
+    margin-left: -3px;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 6px;
+    color:#fff;
+    display: none;
+  }
 
+  &.closed:after {
+    display: inline-block;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+    bottom:10px;
+  }
+
+  &.black {
     &:before {
-      content:'';
-      position:absolute;
-      left:10px;
-      top:0;
-      width:141px;
-      background-color:$okf-primary;
-      height:67px;
-      border-radius: 0 0 11px 11px;
-      -webkit-transform:  translateZ(-1000px) perspective(100px) rotateX(-18deg); //translateZ fixes Safari bug
-      -moz-transform: perspective(100px) rotateX(-18deg);
-      transform: translateZ(-1000px) perspective(100px) rotateX(-18deg); //translateZ fixes Safari bug
-      -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
-      -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
-      box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
-      z-index:-1;
+      background-color:#1d1d1b;
     }
+  }
+
+  &.white {
+    img {
+      margin-top:15px;
+    }
+    &:before {
+      background-color:#fff;
+    }
+    &:after {
+      color:#1d1d1b;
+    }
+  }
+
+  &.open {
+    top:-4px;
 
     &:after {
-      content: "";
-      border-style: solid;
-      border-width: 2px 2px 0 0;
-      bottom: 9px;
-      height: 6px;
-      left: 50%;
-      margin-left: -3px;
-      position: absolute;
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      vertical-align: top;
-      width: 6px;
-      color:#fff;
-      display: none;
-    }
-
-    &.closed:after {
       display: inline-block;
-      -webkit-transform: rotate(135deg);
-      -moz-transform: rotate(135deg);
-      transform: rotate(135deg);
-      bottom:10px;
-    }
-
-    &.black {
-      &:before {
-        background-color:#1d1d1b;
-      }
-    }
-
-    &.white {
-      img {
-        margin-top:15px;
-      }
-      &:before {
-        background-color:#fff;
-      }
-      &:after {
-        color:#1d1d1b;
-      }
-    }
-
-    &.open {
-      top:-4px;
-
-      &:after {
-        display: inline-block;
-      }
-    }
-
-    &:hover {
-      top:-4px;
     }
   }
 
-  &[data-breakpoint='448px'] {
-    @media only screen and (min-width : 448px) {
-      @include ribbon;
-    }
-  }
-
-  &[data-breakpoint='640px'] {
-    @media only screen and (min-width : 640px) {
-      @include ribbon;
-    }
-  }
-
-  &[data-breakpoint='768px'] {
-    @media only screen and (min-width : 768px) {
-      @include ribbon;
-    }
-  }
-
-  &[data-breakpoint='896px'] {
-    @media only screen and (min-width : 896px) {
-      @include ribbon;
-    }
-  }
-
-  &:not([data-breakpoint*='px']) {
-    @media only screen and (min-width : 576px) {
-      @include ribbon;
-    }
+  &:hover {
+    top:-4px;
   }
 }
+
+#ok-panel-wrapper[data-breakpoint='448px'] > .ok-ribbon {
+  @media only screen and (min-width : 448px) {
+    @include ribbon;
+  }
+}
+
+#ok-panel-wrapper[data-breakpoint='640px'] > .ok-ribbon {
+  @media only screen and (min-width : 640px) {
+    @include ribbon;
+  }
+}
+
+#ok-panel-wrapper[data-breakpoint='768px'] > .ok-ribbon {
+  @media only screen and (min-width : 768px) {
+    @include ribbon;
+  }
+}
+
+#ok-panel-wrapper[data-breakpoint='896px'] > .ok-ribbon {
+  @media only screen and (min-width : 896px) {
+    @include ribbon;
+  }
+}
+
+//default
+*:not(#ok-panel-wrapper) > .ok-ribbon, //for older implementations
+#ok-panel-wrapper:not([data-breakpoint*='px']) > .ok-ribbon {
+  @media only screen and (min-width : 576px) {
+    @include ribbon;
+  }
+}
+
 
 .fixed-ok-panel,
 .absolute-ok-panel {
