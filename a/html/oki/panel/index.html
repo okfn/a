@@ -65,9 +65,9 @@
           <p><strong>Note:</strong> this will cause the ribbon to appear in front of whatever is on the page. To avoid this, see below method.</p>
           <h3>Relative Position</h3>
           <p>This will add the ribbon into the flow of the document. First add the following immediately after the opening <code>&lt;body&gt;</code> tag:</p>
-          <pre><code class="language-markup">&lt;div id="ok-panel-wrapper" &gt; &lt;div id="ok-panel" class="closed"&gt;&lt;div class="container"&gt;&lt;iframe src="//a.okfn.org/html/oki/panel/panel.html" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
+          <pre><code class="language-markup">&lt;div id="ok-panel" class="closed"&gt;&lt;div class="container"&gt;&lt;iframe src="//a.okfn.org/html/oki/panel/panel.html" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
           <p>Then add this where you want the ribbon to appear (should be near the top of the page):</p>
-          <pre><code class="language-markup">&lt;a class="ok-ribbon" href="//okfn.org/"&gt;&lt;img src="//a.okfn.org/html/oki/panel/assets/images/oki-ribbon.png" alt="Open Knowledge"&gt;&lt;/a&gt;</code></pre>
+          <pre><code class="language-markup">&lt;div id="ok-panel-wrapper"&gt;&lt;a class="ok-ribbon" href="//okfn.org/"&gt;&lt;img src="//a.okfn.org/html/oki/panel/assets/images/oki-ribbon.png" alt="Open Knowledge"&gt;&lt;/a&gt;&lt;/div&gt;</code></pre>
           <hr>
           <h2>Colour Options</h2>
           <p>With the above, default implementation, the ribbon will be green. There are also black and white options. For white on black add <code>black</code> to the <code>ok-ribbon</code> class, like so:</p>
