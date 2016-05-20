@@ -49,10 +49,6 @@
         <article  class="col-md-9">
           <p>Once applied to your website, the Open Knowledge Ribbon will look like this:</p>
           <p><a class="ok-ribbon"><img src="assets/images/oki-ribbon.png" alt="Open Knowledge"></a></p>
-          <h2>Prerequisites</h2>
-          <ul>
-          <li>JQuery</li>
-          </ul>
           <h2>CSS</h2>
           <p>Add the below code to the <code>&lt;head&gt;</code> section of your webpage, to include a small stylesheet:</p>
           <pre><code class="language-markup">&lt;link rel="stylesheet" href="//a.okfn.org/html/oki/panel/assets/css/frontend.css"/&gt;</code></pre>
@@ -65,11 +61,11 @@
           <p>Lastly, there is the HTML. Where and how you add this depends slightly on your website, but the are two basic options.</p>
           <h3>Fixed Position</h3>
           <p>This is probably the most straightforward method, just add the following snippet immediately after the opening <code>&lt;body&gt;</code> tag:</p>
-          <pre><code class="language-markup">&lt;div class="fixed-ok-panel"&gt;&lt;div id="ok-panel" class="closed"&gt;&lt;div class="container"&gt;&lt;iframe src="//a.okfn.org/html/oki/panel/panel.html" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;&lt;a class="ok-ribbon" href="//okfn.org/"&gt;&lt;img src="//a.okfn.org/html/oki/panel/assets/images/oki-ribbon.png" alt="Open Knowledge"&gt;&lt;/a&gt;&lt;/div&gt;</code></pre>
+          <pre><code class="language-markup">&lt;div id="ok-panel-wrapper" class="fixed-ok-panel"&gt;&lt;div id="ok-panel" class="closed"&gt;&lt;div class="container"&gt;&lt;iframe src="//a.okfn.org/html/oki/panel/panel.html" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;&lt;a class="ok-ribbon" href="//okfn.org/"&gt;&lt;img src="//a.okfn.org/html/oki/panel/assets/images/oki-ribbon.png" alt="Open Knowledge"&gt;&lt;/a&gt;&lt;/div&gt;</code></pre>
           <p><strong>Note:</strong> this will cause the ribbon to appear in front of whatever is on the page. To avoid this, see below method.</p>
           <h3>Relative Position</h3>
           <p>This will add the ribbon into the flow of the document. First add the following immediately after the opening <code>&lt;body&gt;</code> tag:</p>
-          <pre><code class="language-markup">&lt;div id="ok-panel" class="closed"&gt;&lt;div class="container"&gt;&lt;iframe src="//a.okfn.org/html/oki/panel/panel.html" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
+          <pre><code class="language-markup">&lt;div id="ok-panel-wrapper" &gt; &lt;div id="ok-panel" class="closed"&gt;&lt;div class="container"&gt;&lt;iframe src="//a.okfn.org/html/oki/panel/panel.html" scrolling="no"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
           <p>Then add this where you want the ribbon to appear (should be near the top of the page):</p>
           <pre><code class="language-markup">&lt;a class="ok-ribbon" href="//okfn.org/"&gt;&lt;img src="//a.okfn.org/html/oki/panel/assets/images/oki-ribbon.png" alt="Open Knowledge"&gt;&lt;/a&gt;</code></pre>
           <hr>
