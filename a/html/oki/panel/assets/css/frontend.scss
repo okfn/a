@@ -146,15 +146,7 @@ $okf-primary: #69b93b;
 
     .ok-ribbon {
       top:auto;
-      margin-top:-4px;
       position:absolute;
-
-      &:hover {
-        margin-top:-2px;
-      }
-      &.open {
-        margin-top:-4px;
-      }
     }
   }
 
