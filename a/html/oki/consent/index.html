@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Consent at Open Knowledge International</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cookie Consent implementation for Open Knowledge International websites">
+  <link rel="stylesheet" type="text/css" href="assets/css/cookieconsent.min.css" />
+  <script src="assets/js/cookieconsent.min.js"></script>
+  <script src="assets/js/cookieconsent-ga.js"></script>
+  <script>
+    var googleAnalyticsCode = {
+      id: 'UA-33874954-7'
+    }
+
+    window.addEventListener("load", function () {
+      window.cookieconsent.initialise({
+        palette: {
+          popup: {
+            background: "#efefef",
+            text: "#404040"
+          },
+          button: {
+            background: "#8ec760",
+            text: "#ffffff"
+          }
+        },
+        content: {
+          dismiss: 'Allow cookies',
+          href: "https://okfn.org/"
+        },
+        type: "opt-out",
+
+        onInitialise: function (status) {
+          var type = this.options.type;
+          var didConsent = this.hasConsented();
+          if (!didConsent) {
+            // disable cookies
+            ga_reset();
+          } else {
+            ga_init();
+          }
+        },
+
+        onStatusChange: function (status, chosenBefore) {
+          var type = this.options.type;
+          var didConsent = this.hasConsented();
+          if (didConsent) {
+            ga_init();
+          } else {
+            ga_reset();
+          }
+        },
+      });
+    });
+  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    section {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>Cookie Consent @ Open Knowledge International</h1>
+    <p>Cookie Consent demonstration for OKI websites. Google Analytics code is loaded only when the users clicks on "Accept cookies" and the code is unloaded if the user selects "Decline".</p>
+  </section>
+</body>
+
+</html>
