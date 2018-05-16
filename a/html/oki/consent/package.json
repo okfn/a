@@ -1,0 +1,15 @@
+{
+  "name": "okfn-consent",
+  "version": "1.0.0",
+  "description": "Cookie Consent implementation for Open Knowledge International websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cp node_modules/cookieconsent/build/cookieconsent.min.js assets/js/ && cp node_modules/cookieconsent/build/cookieconsent.min.css assets/css/"
+  },
+  "author": "Goce Mitevski",
+  "license": "ISC",
+  "devDependencies": {
+    "cookieconsent": "^3.0.6"
+  }
+}
