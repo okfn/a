@@ -11,8 +11,11 @@
   <script src="assets/js/cookieconsent.min.js"></script>
   <script src="assets/js/cookieconsent-ga.js"></script>
   <script>
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
     var googleAnalyticsCode = {
-      id: 'UA-33874954-7'
+      id: url.searchParams.get("id")
     }
 
     window.addEventListener("load", function () {
