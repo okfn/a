@@ -7,57 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Cookie Consent implementation for Open Knowledge International websites">
-  <link rel="stylesheet" type="text/css" href="assets/css/cookieconsent.min.css" />
-  <script src="assets/js/cookieconsent.min.js"></script>
-  <script src="assets/js/cookieconsent-ga.js"></script>
   <script>
     var googleAnalyticsCode = {
-      id: 'UA-33874954-7'
+      id: 'UA-XXXXXXXX-X'
     }
-
-    window.addEventListener("load", function () {
-      window.cookieconsent.initialise({
-        palette: {
-          popup: {
-            background: "#efefef",
-            text: "#404040"
-          },
-          button: {
-            background: "#8ec760",
-            text: "#ffffff"
-          }
-        },
-        content: {
-          message: 'This website uses some cookies that collect information so we can improve user experience and report to our funders.',
-          dismiss: 'Allow cookies',
-          link: 'Read our privacy policy',
-          href: "https://okfn.org/privacy-policy/"
-        },
-        type: "opt-out",
-
-        onInitialise: function (status) {
-          var type = this.options.type;
-          var didConsent = this.hasConsented();
-          if (!didConsent) {
-            // disable cookies
-            ga_reset();
-          } else {
-            ga_init();
-          }
-        },
-
-        onStatusChange: function (status, chosenBefore) {
-          var type = this.options.type;
-          var didConsent = this.hasConsented();
-          if (didConsent) {
-            ga_init();
-          } else {
-            ga_reset();
-          }
-        },
-      });
-    });
   </script>
+  <script src="assets/js/consent.js"></script>
 </head>
 
 </html>
