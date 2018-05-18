@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  var assetsPath = 'https://a.okfn.org/html/oki/consent/assets';
+
   // Load Cookie Consent CSS styling
   var css = 'cookieconsent-css';
   if (!document.getElementById(css)) {
@@ -8,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     link.id = css;
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'assets/css/cookieconsent.min.css';
+    link.href = assetsPath + '/css/cookieconsent.min.css';
     link.media = 'screen';
     head.appendChild(link);
   }
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ccCore.type = 'text/javascript';
     ccCore.id = ccCoreId;
     ccCore.async = true;
-    ccCore.src = 'assets/js/cookieconsent.min.js';
+    ccCore.src = assetsPath + '/js/cookieconsent.min.js';
     scripts.parentNode.insertBefore(ccCore, scripts);
   }
 
