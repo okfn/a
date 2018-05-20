@@ -40,12 +40,16 @@ window.addEventListener("load", function () {
   }
 
   function ga_init() {
-    var head = document.getElementsByTagName('head')[0];
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = dc;
-    head.appendChild(ga);
+    var gaInit = 'ga-init';
+    if (!document.getElementById(gaInit)) {
+      var head = document.getElementsByTagName('head')[0];
+      var ga = document.createElement('script');
+      ga.id = gaInit;
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = dc;
+      head.appendChild(ga);
+    }
 
     window.dataLayer = window.dataLayer || [];
 
@@ -54,7 +58,9 @@ window.addEventListener("load", function () {
     }
     gtag('js', new Date());
 
-    gtag('config', okiConsent.analyticsTrackingID, {});
+    gtag('config', okiConsent.analyticsTrackingID, {
+      'cookie_domain': window.location.hostname,
+    });
   }
 
   function ga_reset() {
