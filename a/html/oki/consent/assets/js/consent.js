@@ -1,4 +1,4 @@
-var dc = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsCode.id;
+var dc = 'https://www.googletagmanager.com/gtag/js?id=' + okiConsent.analyticsTrackingID;
 var ac = 'https://www.google-analytics.com/analytics.js';
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -54,7 +54,7 @@ window.addEventListener("load", function () {
     }
     gtag('js', new Date());
 
-    gtag('config', googleAnalyticsCode.id, {});
+    gtag('config', okiConsent.analyticsTrackingID, {});
   }
 
   function ga_reset() {
