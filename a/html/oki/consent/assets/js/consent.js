@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
+var dc = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsCode.id;
+var ac = 'https://www.google-analytics.com/analytics.js';
 
+document.addEventListener("DOMContentLoaded", function () {
   var assetsPath = 'https://a.okfn.org/html/oki/consent/assets';
 
-  // Load Cookie Consent CSS styling
+  // Load Cookie Consent CSS styling.
   var css = 'cookieconsent-css';
   if (!document.getElementById(css)) {
     var head = document.getElementsByTagName('head')[0];
@@ -15,46 +17,58 @@ document.addEventListener("DOMContentLoaded", function () {
     head.appendChild(link);
   }
 
-  // Load Cookie Consent core
-  var ccCoreId = 'cookieconsent-core';
-  if (!document.getElementById(ccCoreId)) {
+  // Load Cookie Consent core.
+  var core = 'cookieconsent-core';
+  if (!document.getElementById(core)) {
     var scripts = document.getElementsByTagName('script')[0];
-    var ccCore = document.createElement('script');
-    ccCore.type = 'text/javascript';
-    ccCore.id = ccCoreId;
-    ccCore.async = true;
-    ccCore.src = assetsPath + '/js/cookieconsent.min.js';
-    scripts.parentNode.insertBefore(ccCore, scripts);
+    var link = document.createElement('script');
+    link.id = core;
+    link.async = true;
+    link.type = 'text/javascript';
+    link.src = assetsPath + '/js/cookieconsent.min.js';
+    scripts.parentNode.insertBefore(link, scripts);
   }
-
 });
 
 window.addEventListener("load", function () {
-
-  var dc = 'stats.g.doubleclick.net/dc.js';
+  function delete_cookies() {
+    document.cookie.split(";").forEach(function (c) {
+      if (!c.includes('cookieconsent_status')) {
+        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+      }
+    });
+  }
 
   function ga_init() {
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', googleAnalyticsCode.id]);
-    _gaq.push(['_trackPageview']);
-    _gaq.push(['_trackPageLoadTime']);
-
+    var head = document.getElementsByTagName('head')[0];
     var ga = document.createElement('script');
     ga.type = 'text/javascript';
     ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + dc;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
+    ga.src = dc;
+    head.appendChild(ga);
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', googleAnalyticsCode.id, {});
   }
 
   function ga_reset() {
     var pageScripts = document.getElementsByTagName('script');
 
+    // Itterate through all <script> elements and remove the ones that match dc and ac.
     for (var i = 0; i < pageScripts.length; i++) {
-      if (pageScripts[i].src.includes(dc)) {
+      if (pageScripts[i].src.includes(dc) || pageScripts[i].src.includes(ac)) {
         pageScripts[i].remove();
       }
     }
+
+    // Delete all cookies except the one for the status of Cookie Consent.
+    delete_cookies();
   }
 
   if (this.window.cookieconsent) {
@@ -78,10 +92,8 @@ window.addEventListener("load", function () {
       type: "opt-out",
 
       onInitialise: function (status) {
-        var type = this.options.type;
         var didConsent = this.hasConsented();
         if (!didConsent) {
-          // disable cookies
           ga_reset();
         } else {
           ga_init();
@@ -89,14 +101,13 @@ window.addEventListener("load", function () {
       },
 
       onStatusChange: function (status, chosenBefore) {
-        var type = this.options.type;
         var didConsent = this.hasConsented();
-        if (didConsent) {
-          ga_init();
-        } else {
+        if (!didConsent) {
           ga_reset();
+        } else {
+          ga_init();
         }
-      },
+      }
     });
   } else {
     console.log('Sorry, Cookie Consent is not yet defined to be initialized.');
