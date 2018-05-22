@@ -1,5 +1,9 @@
-var dc = 'https://www.googletagmanager.com/gtag/js?id=' + okiConsent.analyticsTrackingID;
+var dc = 'https://www.googletagmanager.com/gtag/js?id=';
 var ac = 'https://www.google-analytics.com/analytics.js';
+
+if (okiConsent && okiConsent.analyticsTrackingID) {
+  dc += okiConsent.analyticsTrackingID;
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   var assetsPath = 'https://a.okfn.org/html/oki/consent/assets';
@@ -77,7 +81,8 @@ window.addEventListener("load", function () {
     delete_cookies();
   }
 
-  if (this.window.cookieconsent) {
+  if (this.window.cookieconsent
+      && okiConsent && okiConsent.analyticsTrackingID) {
     this.window.cookieconsent.initialise({
       palette: {
         popup: {
@@ -116,7 +121,6 @@ window.addEventListener("load", function () {
       }
     });
   } else {
-    console.log('Sorry, Cookie Consent is not yet defined to be initialized.');
+    console.log('Cookie Consent or tracking ID is not defined.');
   }
-
 });
