@@ -95,9 +95,10 @@ window.addEventListener("load", function () {
         }
       },
       content: {
-        message: 'This website uses some cookies that collect information so we can improve user experience and report to our funders.',
+        message: 'This website uses cookies that collect information, to help the maintainers to improve user experience, and report to funders.',
         dismiss: 'Allow cookies',
-        link: 'Read our privacy policy',
+        deny: 'Opt out',
+        link: 'See privacy policy',
         href: "https://okfn.org/privacy-policy/"
       },
       type: "opt-out",
