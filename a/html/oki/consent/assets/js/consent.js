@@ -81,8 +81,8 @@ window.addEventListener("load", function () {
     this.window.cookieconsent.initialise({
       palette: {
         popup: {
-          background: "#eaeaea",
-          text: "#333333"
+          background: "#333333",
+          text: "#ffffff"
         },
         button: {
           background: "#56A62B",
