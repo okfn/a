@@ -9,5 +9,8 @@ env:
   - secure: oRbxs8j4B9xB+sjXxJpBWj9cRasxX9IN/ULJi8AX/Fgcvnz3Oa0geR1racsszeUJ3EwzDxjeRikw9ipV4dihisji5PWJa1hh1BQggwmGeJlF++SFdRrIuU6DpFiUAgjgJM5b6u4Ztoqp+WnL+E6lMQUK7n31icOYQEANXMop5B9urxbWzlD2LAelCxEDsiFNwRf0Hx/xfEp/EeARrmdeouMXj1AxdMa0BI6EyikkyItzMG+1eMzXbAVmLr7IgP43ypuAJHrEkCFb9SG2cw3+gVIrAse3VnWvAVJ90HNB+EOAwff/ENIswGninjUAj5j1Qp1ZO+RD9VliUZZgA9jle8NEMf76K+wGGQktL41unq9flUGtd0N6mAdxQf9Zzeh6O3gZGB5gKwQ1NU6/4s/wTIG9Id+vWzpG+Zvi2hFVfyZwmkm2IlIqMhqoAMJynnZ5976DE3+Qo7Kd+KeJ/Gq1TJK55WdynW9g/c62ogqK7482mZxwBhj2LSqIw/o0e8sELlhJCYVcnyKsxaLO9SkaBwwtXIa7d7+wJk6Kc/RRCC1L82qo8qVk89D0rpIUviYpVF1eE8+uFVrd9ePj/8c1RHeJTGRRZg3vRtXxW4FhrlCkBNzqE+oNAuoyU+RmdoKXx8a3J2W6BYqe8YwxY7IIJlr+meE+TdQ+UYAN+7v+050=
 install:
 - pip install awscli
-script:
-- aws s3 sync a s3://a.okfn.org
+deploy:
+  provider: script
+  script: aws s3 sync a s3://a.okfn.org
+  on:
+    branch: master
