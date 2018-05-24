@@ -64,7 +64,7 @@ window.addEventListener("load", function () {
 
     gtag('config', okiConsent.analyticsTrackingID, {
       'cookie_domain': window.location.hostname,
-      'anonymizeIp': true,
+      'anonymize_ip': true,
     });
   }
 
