@@ -1,6 +1,6 @@
-# Cookie Consent for Open Knowledge International websites
+# Cookie consent for Open Knowledge Foundation websites
 
-Custom implementation of Cookie Consent for Open Knowledge International websites.
+Custom implementation of cookie consent for Open Knowledge Foundation websites.
 
 ## Requirements
 
