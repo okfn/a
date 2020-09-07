@@ -11,6 +11,6 @@ script:
   - pip install awscli
 deploy:
   provider: script
-  script: aws s3 sync a s3://a.okfn.org
+  script: aws s3 sync --cache-control max-age=7200 a s3://a.okfn.org
   on:
     branch: master
