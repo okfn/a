@@ -1,10 +1,9 @@
 name: Deploy to AWS S3
 
-on: push
-# on:
-#   push:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -21,10 +20,9 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          # Install aws cli
+          echo "Install aws cli"
           pip install awscli
-          echo "Sync a timestamp file"
           echo "Deploy timestamp $(date)" > deploy-timestamp.txt
           aws s3 cp --region eu-west-1 deploy-timestamp.txt s3://a.okfn.org
-          # echo "Sync all files"
-          # aws s3 sync --cache-control max-age=7200 --region eu-west-1 a s3://a.okfn.org
+          echo "Sync all files"
+          aws s3 sync --cache-control max-age=7200 --region eu-west-1 a s3://a.okfn.org
