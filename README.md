@@ -1,5 +1,5 @@
 # a.okfn.org
-![Deploy to S3](https://github.com/okfn/a/workflows/Deploy%20to%20AWS%20S3/badge.svg?branch=master)
+[![Deploy to AWS S3](https://github.com/okfn/a/actions/workflows/deploy-s3.yml/badge.svg)](https://github.com/okfn/a/actions/workflows/deploy-s3.yml)
 
 This is a repository only to be used for read-only web assets. This repository should be as light as possible.
 
